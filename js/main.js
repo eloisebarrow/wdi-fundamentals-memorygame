@@ -18,7 +18,7 @@ var cards = [
 {
 	rank: "king",
 	suit: "hearts",
-	cardImage: "king-of-hearts.png"
+	cardImage: "images/king-of-hearts.png"
 }
 ];
 var cardsInPlay = [];
@@ -31,9 +31,12 @@ function checkForMatch() {
 	}
 };
 
-function flipCard(cardId) {
+function flipCard() {
+	var cardId = this.getAttribute('data-id');
 	cardsInPlay.push(cards[cardId].rank);
 	console.log("User flipped " + cards[cardId].rank); // Log which card the user flipped to the console
+	
+	this.setAttribute('src', cards[cardId].cardImage);
 	if (cardsInPlay.length === 2){ // if the user has flipped 2 cards
 		checkForMatch();
 	}
@@ -41,5 +44,36 @@ function flipCard(cardId) {
 	console.log(cards[cardId].suit);
 };
 // Note checkForMatch() must come before flipCard() so we can use the former in the latter
-flipCard(0);
-flipCard(2);
+
+function createBoard() {
+	for (var i = 0; i < cards.length; i++) {
+		cards[i]; // Loop through the cards array
+		var cardElement = document.createElement('img'); // Create a cardElement img each time loop runs
+
+		cardElement.setAttribute('src', 'images/back.png'); // Allow user to see back of card for each card created
+		cardElement.setAttribute('data-id', i); // Set current card to current iteration index #
+		
+		cardElement.addEventListener('click', flipCard); // Perform flipCard function when user clicks a card
+		document.getElementById('game-board').appendChild(cardElement); // Add cardElement to the game-board div
+	};
+
+};
+
+createBoard();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
