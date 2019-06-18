@@ -24,7 +24,7 @@ var cards = [
 var cardsInPlay = [];
 
 function checkForMatch() {
-	if (cardsInPlay[0] === cardsInPlay[1]) { // if cards 1 and 2 are equal
+	if (cardsInPlay[0] === cardsInPlay[1]) { // if cards 1 and 2 are equivalent
 		alert('You found a match!'); // tell user they found a match
 	} else {
 		alert('Sorry, try again.'); // ELSE tell user to try again
@@ -43,6 +43,7 @@ function flipCard() {
 	console.log(cards[cardId].cardImage);
 	console.log(cards[cardId].suit);
 };
+
 // Note checkForMatch() must come before flipCard() so we can use the former in the latter
 
 function createBoard() {
@@ -60,6 +61,21 @@ function createBoard() {
 };
 
 createBoard();
+
+/*
+It might be useful to add a "Reset" button to the HTML 
+and set up an event in the JavaScript file so that the user can reset the game after playing.
+
+For an extra challenge, consider how you could keep track of and display the user's score.
+*/
+
+function reset() {
+	for (var i = 0; i < cards.length; i++) {
+		document.querySelectorAll('img')[i].setAttribute('src', 'images/back.png');
+	};
+	cardsInPlay = [];
+};
+document.getElementById('reset').addEventListener('click', reset);
 
 
 

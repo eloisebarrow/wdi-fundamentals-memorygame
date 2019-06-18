@@ -42,7 +42,6 @@ img {
 	margin: 40px 8px;
 }
 .header-links {
-	/*color: #F15B31;*/
 	letter-spacing: 1px;
 	font-weight: 600;
 	font-size: 18px;
@@ -88,7 +87,15 @@ font-size: 0;
 	font-weight: 700;
 }
 
-
+button {
+	width: 100px;
+	height: 50px;
+	background-color: #00A6B3;
+	color: #FFF;
+	text-transform: uppercase;
+	font-size: 18px;
+	border-radius: 5px;
+}
 
 
 
