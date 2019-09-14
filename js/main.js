@@ -35,7 +35,7 @@ function flipCard() {
 	var cardId = Math.floor(Math.random() * 3) + 1; // Randomly assign one of the cards objects to variable cardId
 	cardsInPlay.push(cards[cardId].rank); // Add current card to the cardsInPlay array
 	console.log("User flipped " + cards[cardId].rank); // Log which card the user flipped to the console
-	
+
 	this.setAttribute('src', cards[cardId].cardImage); // Display cardImage of currently flipped card
 	if (cardsInPlay.length === 2){ // if the user has flipped 2 cards
 		checkForMatch();
@@ -53,17 +53,16 @@ function createBoard() {
 
 		cardElement.setAttribute('src', 'images/back.png'); // Allow user to see back of card for each card created
 		cardElement.setAttribute('data-id', i); // Assign data-id of current card to current iteration index #
-		
+
 		cardElement.addEventListener('click', flipCard); // Perform flipCard function when user clicks a card
 		document.getElementById('game-board').appendChild(cardElement); // Add cardElement to the game-board div
 	};
-
 };
 
 createBoard();
 
 /*
-It might be useful to add a "Reset" button to the HTML 
+It might be useful to add a "Reset" button to the HTML
 and set up an event in the JavaScript file so that the user can reset the game after playing.
 
 For an extra challenge, consider how you could keep track of and display the user's score.
@@ -76,20 +75,3 @@ function reset() {
 	cardsInPlay = [];
 };
 document.getElementById('reset').addEventListener('click', reset);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
